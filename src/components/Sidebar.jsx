@@ -23,6 +23,8 @@ const menuItems = [
     { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
     { name: 'feedback', icon: <MessageCircle />, path: '/feedback' },
     { name: 'helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
+    { name: 'Penjualan', icon: <ShoppingCart />, path: '/Penjualan' },
+    { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
     { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
     { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },

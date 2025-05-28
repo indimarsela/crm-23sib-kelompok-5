@@ -8,6 +8,7 @@ import Tracking from "./pages/Tracking"
 import OrderForm from "./pages/OrderForm"
 import Feedback from "./pages/Feedback"
 import Helpdesk from "./pages/Helpdesk"
+import Pelanggan from "./pages/Pelanggan"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/pelanggan" element={<CustomerManagement />} />
         <Route path="/feedback" element={<Feedback />} />
         <Route path="/helpdesk" element={<Helpdesk />} />
+        <Route path="/Pelanggan" element={<Pelanggan />} />
       </Route>
     </Routes>
   )
