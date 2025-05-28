@@ -3,6 +3,7 @@ import MainLayout from "./components/MainLayout"
 import Dashboard from "./pages/Dashboard"
 import SalesManagement from "./pages/Penjualan"
 import Penjualan from "./pages/Penjualan"
+import Pelanggan from "./pages/Pelanggan"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<Dashboard />} />
         <Route path="/Penjualan" element={<Penjualan />} />
+        <Route path="/Pelanggan" element={<Pelanggan />} />
       </Route>
     </Routes>
   )
