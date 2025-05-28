@@ -10,6 +10,9 @@ import {
     User,
     LogIn,
     UserPlus,
+    MessageCircle,
+    Headset,
+    HeadsetIcon,
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -18,6 +21,8 @@ const menuItems = [
     { name: 'Produk', icon: <Box />, path: '/produk' },
     { name: 'Pelanggan', icon: <Box />, path: '/pelanggan' },
     { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
+    { name: 'feedback', icon: <MessageCircle />, path: '/feedback' },
+    { name: 'helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
     { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
     { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },

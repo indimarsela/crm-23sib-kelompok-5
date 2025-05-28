@@ -6,6 +6,8 @@ import SalesManagement from "./pages/Penjualan"
 import Penjualan from "./pages/Penjualan"
 import Tracking from "./pages/Tracking"
 import OrderForm from "./pages/OrderForm"
+import Feedback from "./pages/Feedback"
+import Helpdesk from "./pages/Helpdesk"
 
 function App() {
 
@@ -18,6 +20,9 @@ function App() {
         <Route path="/Penjualan" element={<Penjualan />} />
         <Route path="/Tracking" element={<Tracking />} />
         <Route path="/OrderForm" element={<OrderForm />} />
+        <Route path="/pelanggan" element={<CustomerManagement />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/helpdesk" element={<Helpdesk />} />
       </Route>
     </Routes>
   )
