@@ -1,3 +1,5 @@
+import { GrUnorderedList } from "react-icons/gr"; 
+import { MdSpatialTracking } from "react-icons/md";
 import {
     LayoutDashboard,
     Users,         // untuk pelanggan
@@ -17,6 +19,8 @@ const menuItems = [
     { name: 'Pelanggan', icon: <Box />, path: '/pelanggan' },
     { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+    { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
+    { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },
 ]
 
 const accountItems = [
@@ -39,8 +43,8 @@ const Sidebar = () => {
                         key={item.name}
                         to={item.path}
                         className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${isActive(item.path)
-                                ? 'bg-purple-200 text-purple-800 font-semibold'
-                                : 'text-gray-700'
+                            ? 'bg-purple-200 text-purple-800 font-semibold'
+                            : 'text-gray-700'
                             }`}
                     >
                         <span className="w-5 h-5">{item.icon}</span>
@@ -56,8 +60,8 @@ const Sidebar = () => {
                         key={item.name}
                         to={item.path}
                         className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${isActive(item.path)
-                                ? 'bg-purple-200 text-purple-800 font-semibold'
-                                : 'text-gray-700'
+                            ? 'bg-purple-200 text-purple-800 font-semibold'
+                            : 'text-gray-700'
                             }`}
                     >
                         <span className="w-5 h-5">{item.icon}</span>
