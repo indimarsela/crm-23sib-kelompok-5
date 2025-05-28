@@ -8,13 +8,18 @@ import {
     User,
     LogIn,
     UserPlus,
+    MessageCircle,
+    Headset,
+    HeadsetIcon,
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
     { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
     { name: 'Produk', icon: <Box />, path: '/produk' },
-    { name: 'pelanggan', icon: <Box />, path: '/pelanggan' },
+    { name: 'Pelanggan', icon: <Box />, path: '/pelanggan' },
+    { name: 'feedback', icon: <MessageCircle />, path: '/feedback' },
+    { name: 'helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
 ]
 
