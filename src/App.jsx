@@ -10,6 +10,7 @@ import Feedback from "./pages/Feedback"
 import Helpdesk from "./pages/Helpdesk"
 import Pelanggan from "./pages/Pelanggan"
 import LeadManagement from "./pages/LeadManagement"
+import SchedulingAssistant from "./pages/SchedulingAssistant"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/helpdesk" element={<Helpdesk />} />
         <Route path="/Pelanggan" element={<Pelanggan />} />
         <Route path="/LeadManagement" element={<LeadManagement />} />
+        <Route path="/schedulingassistant" element={<SchedulingAssistant />} />
       </Route>
     </Routes>
   )
