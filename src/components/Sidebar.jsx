@@ -28,6 +28,7 @@ const menuItems = [
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
     { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
     { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },
+    { name: 'LeadManagement', icon: <GrUnorderedList />, path: '/leadmanagement' },
 ]
 
 const accountItems = [
