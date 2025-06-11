@@ -1,3 +1,4 @@
+import { AiFillSchedule } from "react-icons/ai"; 
 import { GrUnorderedList } from "react-icons/gr"; 
 import { MdSpatialTracking } from "react-icons/md";
 import {
@@ -28,6 +29,7 @@ const menuItems = [
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
     { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
     { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },
+    { name: 'Schedule', icon: <AiFillSchedule />, path: '/schedulingassistant' },
 ]
 
 const accountItems = [
