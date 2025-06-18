@@ -25,7 +25,6 @@ const reviewsPerPage = 3;
 const Feedback = () => {
   const [reviews, setReviews] = useState(initialReviews);
   const [currentPage, setCurrentPage] = useState(1);
-
   const [formData, setFormData] = useState({
     nama: "",
     produk: "",
@@ -56,102 +55,97 @@ const Feedback = () => {
   const renderStars = (count) => "⭐".repeat(count);
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.title}>📋 Daftar Feedback Pelanggan</h2>
+    <div className="max-w-6xl mx-auto p-6 bg-white rounded-xl shadow-lg mt-8">
+      <h2 className="text-3xl font-bold text-[#800000] mb-6 text-center">📋 Daftar Feedback Pelanggan</h2>
 
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <input
-          type="text"
-          placeholder="Nama Anda"
-          required
-          value={formData.nama}
-          onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
-          style={styles.input}
-        />
-        <select
-          required
-          value={formData.produk}
-          onChange={(e) => setFormData({ ...formData, produk: e.target.value })}
-          style={styles.select}
-        >
-          <option value="" disabled>
-            Pilih Produk
-          </option>
-          {produkList.map((produk) => (
-            <option key={produk} value={produk}>
-              {produk}
-            </option>
-          ))}
-        </select>
-        <select
-          value={formData.rating}
-          onChange={(e) => setFormData({ ...formData, rating: parseInt(e.target.value) })}
-          style={styles.select}
-        >
-          <option value={5}>5 - Sangat Baik</option>
-          <option value={4}>4 - Baik</option>
-          <option value={3}>3 - Cukup</option>
-          <option value={2}>2 - Kurang</option>
-          <option value={1}>1 - Buruk</option>
-        </select>
+      <form onSubmit={handleSubmit} className="space-y-4 mb-6">
+        <div className="flex flex-wrap gap-4">
+          <input
+            type="text"
+            placeholder="Nama Anda"
+            required
+            value={formData.nama}
+            onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
+            className="flex-1 min-w-[200px] px-4 py-3 border border-gray-300 rounded-md"
+          />
+          <select
+            required
+            value={formData.produk}
+            onChange={(e) => setFormData({ ...formData, produk: e.target.value })}
+            className="flex-1 min-w-[200px] px-4 py-3 border border-gray-300 rounded-md"
+          >
+            <option value="" disabled>Pilih Produk</option>
+            {produkList.map((produk) => (
+              <option key={produk} value={produk}>{produk}</option>
+            ))}
+          </select>
+          <select
+            value={formData.rating}
+            onChange={(e) => setFormData({ ...formData, rating: parseInt(e.target.value) })}
+            className="flex-1 min-w-[200px] px-4 py-3 border border-gray-300 rounded-md"
+          >
+            <option value={5}>5 - Sangat Baik</option>
+            <option value={4}>4 - Baik</option>
+            <option value={3}>3 - Cukup</option>
+            <option value={2}>2 - Kurang</option>
+            <option value={1}>1 - Buruk</option>
+          </select>
+        </div>
         <textarea
           placeholder="Komentar Anda"
           required
           value={formData.komentar}
           onChange={(e) => setFormData({ ...formData, komentar: e.target.value })}
-          style={styles.textarea}
+          className="w-full px-4 py-3 border border-gray-300 rounded-md h-28"
         />
-        <button type="submit" style={styles.button}>
+        <button
+          type="submit"
+          className="w-full bg-[#800000] text-white font-semibold py-3 rounded-md hover:bg-red-800 transition"
+        >
           Kirim Feedback
         </button>
       </form>
 
-      <div style={styles.tableWrapper}>
-        <table style={styles.table}>
-          <thead>
+      <div className="overflow-x-auto">
+        <table className="min-w-full text-sm text-left border border-gray-200">
+          <thead className="bg-[#800000] text-white">
             <tr>
-              <th style={styles.th}>No</th>
-              <th style={styles.th}>Nama</th>
-              <th style={styles.th}>Produk</th>
-              <th style={styles.th}>Rating</th>
-              <th style={styles.th}>Komentar</th>
+              <th className="p-3">No</th>
+              <th className="p-3">Nama</th>
+              <th className="p-3">Produk</th>
+              <th className="p-3">Rating</th>
+              <th className="p-3">Komentar</th>
             </tr>
           </thead>
           <tbody>
             {currentReviews.map((review, index) => (
-              <tr key={review.id}>
-                <td style={styles.td}>{indexOfFirstReview + index + 1}</td>
-                <td style={styles.td}>{review.nama}</td>
-                <td style={styles.td}>{review.produk}</td>
-                <td style={styles.td}>
-                  <span style={{ color: "#f1c40f" }}>{renderStars(review.rating)}</span>{" "}
-                  {review.rating === 5
-                    ? "Sangat Baik"
-                    : review.rating === 4
-                    ? "Baik"
-                    : review.rating === 3
-                    ? "Cukup"
-                    : review.rating === 2
-                    ? "Kurang"
-                    : "Buruk"}
+              <tr key={review.id} className="odd:bg-white even:bg-gray-50">
+                <td className="p-3">{indexOfFirstReview + index + 1}</td>
+                <td className="p-3">{review.nama}</td>
+                <td className="p-3">{review.produk}</td>
+                <td className="p-3 text-yellow-500">
+                  {renderStars(review.rating)}{" "}
+                  <span className="text-gray-700">
+                    ({["Buruk", "Kurang", "Cukup", "Baik", "Sangat Baik"][review.rating - 1]})
+                  </span>
                 </td>
-                <td style={styles.td}>{review.komentar}</td>
+                <td className="p-3">{review.komentar}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <div style={styles.pagination}>
+      <div className="mt-6 flex justify-center space-x-2">
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i}
             onClick={() => handlePageChange(i + 1)}
-            style={{
-              ...styles.pageButton,
-              backgroundColor: currentPage === i + 1 ? "#007BFF" : "#f0f0f0",
-              color: currentPage === i + 1 ? "#fff" : "#000",
-            }}
+            className={`px-4 py-2 rounded-md font-semibold ${
+              currentPage === i + 1
+                ? "bg-[#800000] text-white"
+                : "bg-gray-200 hover:bg-gray-300"
+            }`}
           >
             {i + 1}
           </button>
@@ -159,95 +153,6 @@ const Feedback = () => {
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: "1200px",
-    width: "100%",
-    margin: "40px auto",
-    padding: "30px 20px",
-    backgroundColor: "#fff",
-    borderRadius: "12px",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-    fontFamily: "'Segoe UI', sans-serif",
-    boxSizing: "border-box",
-  },
-  title: {
-    textAlign: "center",
-    marginBottom: "20px",
-    color: "#c0392b",
-  },
-  form: {
-    marginBottom: "30px",
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "10px",
-  },
-  input: {
-    flex: "1 1 200px",
-    padding: "10px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    minWidth: "0",
-  },
-  select: {
-    flex: "1 1 200px",
-    padding: "10px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    minWidth: "0",
-  },
-  textarea: {
-    flex: "1 1 100%",
-    padding: "10px",
-    minHeight: "80px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    minWidth: "0",
-  },
-  button: {
-    flex: "1 1 100%",
-    padding: "12px",
-    backgroundColor: "#007BFF",
-    color: "#fff",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  tableWrapper: {
-    overflowX: "auto",
-  },
-  table: {
-    width: "100%",
-    borderCollapse: "collapse",
-    minWidth: "600px",
-  },
-  th: {
-    backgroundColor: "#007BFF",
-    color: "#fff",
-    padding: "12px",
-    textAlign: "left",
-    whiteSpace: "nowrap",
-  },
-  td: {
-    padding: "12px",
-    borderBottom: "1px solid #ddd",
-    whiteSpace: "nowrap",
-  },
-  pagination: {
-    marginTop: "20px",
-    textAlign: "center",
-  },
-  pageButton: {
-    padding: "8px 12px",
-    margin: "0 5px",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
 };
 
 export default Feedback;

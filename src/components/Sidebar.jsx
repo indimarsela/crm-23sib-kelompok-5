@@ -1,35 +1,38 @@
+import { AiFillCustomerService } from "react-icons/ai"; 
 import { AiFillSchedule } from "react-icons/ai"; 
 import { GrUnorderedList } from "react-icons/gr"; 
 import { MdSpatialTracking } from "react-icons/md";
 import {
     LayoutDashboard,
-    Users,         // untuk pelanggan
-    ShoppingCart,  // untuk penjualan
-    Box,           // untuk produk
-    BarChart2,     // untuk laporan
-    Settings,      // untuk pengaturan akun
+    Users,
+    ShoppingCart,
+    Box,
+    BarChart2,
+    Settings,
     User,
     LogIn,
     UserPlus,
     MessageCircle,
-    Headset,
     HeadsetIcon,
 } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
+import { TfiEmail } from "react-icons/tfi";
 
 const menuItems = [
     { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
     { name: 'Produk', icon: <Box />, path: '/produk' },
-    // { name: 'Pelanggan', icon: <Box />, path: '/pelanggan' },
     { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
-    { name: 'feedback', icon: <MessageCircle />, path: '/feedback' },
-    { name: 'helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
-    { name: 'Penjualan', icon: <ShoppingCart />, path: '/Penjualan' },
+    { name: 'Feedback', icon: <MessageCircle />, path: '/feedback' },
+    { name: 'Helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
+    { name: 'Penjualan', icon: <ShoppingCart />, path: '/Penjualan' }, // meskipun nama sama, path beda
     { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
     { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
+    { name: 'Self Service', icon: <AiFillCustomerService />, path: '/selfservice' },
+    { name: 'Complaint Tracker', icon: <MessageCircle />, path: '/complaint-tracker' },
     { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },
     { name: 'Schedule', icon: <AiFillSchedule />, path: '/schedulingassistant' },
+    { name: 'Auto Email Responder', icon: <TfiEmail />, path: '/autoemailresponder' },
 ]
 
 const accountItems = [
@@ -49,7 +52,7 @@ const Sidebar = () => {
             <nav className="space-y-1">
                 {menuItems.map((item) => (
                     <Link
-                        key={item.name}
+                        key={`${item.name}-${item.path}`}
                         to={item.path}
                         className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${isActive(item.path)
                             ? 'bg-purple-200 text-purple-800 font-semibold'
@@ -66,7 +69,7 @@ const Sidebar = () => {
             <nav className="mt-2 space-y-1">
                 {accountItems.map((item) => (
                     <Link
-                        key={item.name}
+                        key={`${item.name}-${item.path}`}
                         to={item.path}
                         className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${isActive(item.path)
                             ? 'bg-purple-200 text-purple-800 font-semibold'
