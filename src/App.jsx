@@ -14,7 +14,7 @@ import SchedulingAssistant from "./pages/SchedulingAssistant"
 import Produk from "./pages/Product"
 import OrderManagement from "./pages/OrderManagement"
 import Laporan from "./pages/Laporan"
-
+import AccountManagement from "./pages/AccountManagement"
 function App() {
 
   return (
@@ -35,6 +35,7 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/OrderManagement" element={<OrderManagement />} />
         <Route path="/Laporan" element={<Laporan />} />
+        <Route path="/AccountManagement" element={<AccountManagement />} />
 
       </Route>
     </Routes>

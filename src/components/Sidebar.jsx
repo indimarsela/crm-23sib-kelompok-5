@@ -1,5 +1,6 @@
-import { AiFillSchedule } from "react-icons/ai"; 
-import { GrUnorderedList } from "react-icons/gr"; 
+import { MdOutlineManageAccounts } from "react-icons/md";
+import { AiFillSchedule } from "react-icons/ai";
+import { GrUnorderedList } from "react-icons/gr";
 import { MdSpatialTracking } from "react-icons/md";
 import {
     LayoutDashboard,
@@ -20,6 +21,9 @@ import { Link, useLocation } from 'react-router-dom'
 const menuItems = [
     { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
     { name: 'Produk', icon: <Box />, path: '/produk' },
+    { name: 'Order Management', icon: <Box />, path: '/ordermanagement' },
+    { name: 'Lead Management', icon: <GrUnorderedList />, path: '/leadmanagement' },
+    { name: 'Account Management', icon: <MdOutlineManageAccounts />, path: '/accountmanagement' },
     { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
     { name: 'feedback', icon: <MessageCircle />, path: '/feedback' },
     { name: 'helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
@@ -28,7 +32,6 @@ const menuItems = [
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
     { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
     { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },
-    { name: 'LeadManagement', icon: <GrUnorderedList />, path: '/leadmanagement' },
     { name: 'Schedule', icon: <AiFillSchedule />, path: '/schedulingassistant' },
 ]
 
@@ -44,8 +47,15 @@ const Sidebar = () => {
     const isActive = (path) => location.pathname === path
 
     return (
-        <aside className="bg-white w-64 h-screen shadow-lg px-4 py-6 hidden md:block">
-            <div className="text-xl font-bold mb-8 text-purple-700">UMKM CRM</div>
+        <aside className="bg-white w-87 h-screen shadow-lg px-4 py-6 hidden md:block">
+            <div className="mb-10 flex items-center gap-3">
+                <img
+                    src="/LOGO_AA.png"
+                    alt="AA Catering Logo"
+                    className="h-20 w-auto"
+                />
+                {/* <span className="text-xl font-bold text-red-600">A.A Catering</span> */}
+            </div>
             <nav className="space-y-1">
                 {menuItems.map((item) => (
                     <Link

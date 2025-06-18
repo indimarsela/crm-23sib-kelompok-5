@@ -10,14 +10,38 @@ import {
 
 const Product = () => {
   const categories = [
-    "Healthy non veg",
-    "Sproutes",
-    "Break fast",
-    "Kids special",
-    "Fresh Juices",
-    "Lunch",
-    "Dinner",
-    "Salads",
+    {
+      name: "Healthy non veg",
+      image: "https://source.unsplash.com/200x150/?chicken,healthy",
+    },
+    {
+      name: "Sproutes",
+      image: "https://source.unsplash.com/200x150/?sprouts,vegetables",
+    },
+    {
+      name: "Break fast",
+      image: "https://source.unsplash.com/200x150/?breakfast,food",
+    },
+    {
+      name: "Kids special",
+      image: "https://source.unsplash.com/200x150/?kids,meal",
+    },
+    {
+      name: "Fresh Juices",
+      image: "https://source.unsplash.com/200x150/?juice,fruit",
+    },
+    {
+      name: "Lunch",
+      image: "https://source.unsplash.com/200x150/?lunch,meal",
+    },
+    {
+      name: "Dinner",
+      image: "https://source.unsplash.com/200x150/?dinner,meal",
+    },
+    {
+      name: "Salads",
+      image: "https://source.unsplash.com/200x150/?salad,healthy",
+    },
   ];
 
   return (
@@ -49,11 +73,15 @@ const Product = () => {
         <div className="grid grid-cols-4 gap-4">
           {categories.map((item) => (
             <div
-              key={item}
+              key={item.name}
               className="border rounded shadow hover:shadow-lg cursor-pointer text-center p-2"
             >
-              <div className="bg-gray-200 h-24 rounded mb-2" />
-              <div className="text-sm font-medium">{item}</div>
+              <img
+                src={item.image}
+                alt={item.name}
+                className="h-24 w-full object-cover rounded mb-2"
+              />
+              <div className="text-sm font-medium">{item.name}</div>
             </div>
           ))}
         </div>
@@ -87,7 +115,7 @@ const Product = () => {
           </div>
         </div>
         <div className="flex items-center gap-1">
-          <FaMapMarkerAlt /> Visit our near by
+          <FaMapMarkerAlt /> Visit our nearby
         </div>
       </div>
     </div>
