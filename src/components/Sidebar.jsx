@@ -12,16 +12,18 @@ import {
 import { Link, useLocation } from 'react-router-dom'
 
 const menuItems = [
-    { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
+    { name: 'Dashboard', icon: <LayoutDashboard />, path: '/Dashboard' },
     { name: 'Produk', icon: <Box />, path: '/produk' },
     { name: 'Penjualan', icon: <ShoppingCart />, path: '/Penjualan' },
     { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+    { name: 'Customer Segementation', icon: <BarChart2 />, path: '/CustomerSegmentation' },
+    { name: 'Campaign Management', icon: <BarChart2 />, path: '/CampaignPage' },
 ]
 
 const accountItems = [
     { name: 'Pengaturan Akun', icon: <Settings />, path: '/akun' },
-    { name: 'Sign In', icon: <LogIn />, path: '/signin' },
+    { name: 'Sign In', icon: <LogIn />, path: '/' },
     { name: 'Sign Up', icon: <UserPlus />, path: '/signup' },
 ]
 
