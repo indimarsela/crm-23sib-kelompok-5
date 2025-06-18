@@ -1,109 +1,87 @@
-import React from 'react'
+import React from "react";
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    LineElement,
-    PointElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js'
-import { Bar, Line } from 'react-chartjs-2'
-
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    LineElement,
-    PointElement,
-    Title,
-    Tooltip,
-    Legend
-)
+  FaSignOutAlt,
+  FaChartBar,
+  FaArrowUp,
+  FaArrowDown,
+} from "react-icons/fa";
 
 const Dashboard = () => {
-    // Data summary cards
-    const stats = [
-        { label: "Pendapatan Hari Ini", value: "$53,000", percent: "+55%", color: "green" },
-        { label: "Pengguna Hari Ini", value: "2,300", percent: "+3%", color: "blue" },
-        { label: "Klien Baru", value: "+3,462", percent: "-2%", color: "red" },
-        { label: "Penjualan", value: "$103,430", percent: "+5%", color: "purple" },
-    ]
+  const statBoxes = ["350", "350", "350", "350"];
+  const leaderboard = [
+    { name: "Syarah Meylina", value: 90000 },
+    { name: "Indi Marsela", value: 2500 },
+    { name: "Caitlin Prameswari", value: 2300 },
+    { name: "Alya Qonitatul", value: 2200 },
+  ];
 
-    // Data untuk grafik Penjualan Bulanan (Bar Chart)
-    const barData = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
-        datasets: [
-            {
-                label: "Penjualan (dalam ribuan $)",
-                data: [12, 19, 14, 17, 22, 30, 28, 26, 32, 35, 40, 45],
-                backgroundColor: "rgba(99, 102, 241, 0.7)", // purple-600
-            },
-        ],
-    }
+  return (
+    <div className="flex-1 p-6 bg-gray-100 overflow-y-auto">
+      <div className="text-lg font-semibold mb-1">Hi, Indi Marsela</div>
+      <div className="text-sm text-gray-500 mb-6">It’s looking like a slow day.</div>
 
-    const barOptions = {
-        responsive: true,
-        plugins: {
-            legend: { position: 'top' },
-            title: { display: true, text: 'Penjualan Bulanan Tahun Ini' },
-        },
-    }
+      <div className="grid grid-cols-4 gap-4 mb-6">
+        {statBoxes.map((value, index) => (
+          <div key={index} className="bg-red-700 text-white p-4 rounded shadow">
+            <div className="text-sm">Unresponded</div>
+            <div className="text-2xl font-bold">{value}</div>
+          </div>
+        ))}
+      </div>
 
-    // Data untuk grafik Pertumbuhan Pelanggan (Line Chart)
-    const lineData = {
-        labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
-        datasets: [
-            {
-                label: "Jumlah Pelanggan",
-                data: [50, 75, 120, 180, 220, 260, 300, 350, 400, 430, 460, 500],
-                borderColor: "rgba(59, 130, 246, 1)", // blue-500
-                backgroundColor: "rgba(59, 130, 246, 0.3)",
-                fill: true,
-                tension: 0.3,
-                pointRadius: 4,
-            },
-        ],
-    }
-
-    const lineOptions = {
-        responsive: true,
-        plugins: {
-            legend: { position: 'top' },
-            title: { display: true, text: 'Pertumbuhan Pelanggan Tahun Ini' },
-        },
-    }
-
-    return (
-        <div className="p-6 space-y-8">
-            {/* Statistik utama */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {stats.map(({ label, value, percent, color }) => (
-                    <div key={label} className="bg-white rounded-xl shadow p-5">
-                        <p className="text-sm text-gray-500">{label}</p>
-                        <h2 className={`text-2xl font-bold text-${color}-600 flex items-center gap-2`}>
-                            {value}
-                            <span className={`text-xs font-semibold text-${color}-500`}>{percent}</span>
-                        </h2>
-                    </div>
-                ))}
-            </div>
-
-            {/* Grafik Penjualan Bulanan */}
-            <div className="bg-white rounded-xl shadow p-6">
-                <Bar options={barOptions} data={barData} />
-            </div>
-
-            {/* Grafik Pertumbuhan Pelanggan */}
-            <div className="bg-white rounded-xl shadow p-6">
-                <Line options={lineOptions} data={lineData} />
-            </div>
+      <div className="grid grid-cols-3 gap-6">
+        <div className="col-span-2 bg-red-700 p-4 rounded shadow text-white">
+          <div className="mb-2">Today</div>
+          <div className="h-40 flex items-center justify-center">
+            <span className="text-gray-300">[Line Chart Placeholder]</span>
+          </div>
         </div>
-    )
-}
 
-export default Dashboard
+        <div className="bg-white rounded shadow p-4">
+          <div className="text-sm font-bold mb-4">Leaderboard</div>
+          <div className="bg-red-700 text-white p-2 rounded mb-3">
+            <div className="text-xs">Most Sales</div>
+            <div className="font-semibold">Syarah Meylina</div>
+          </div>
+          {leaderboard.slice(1).map((item, index) => (
+            <div
+              key={item.name}
+              className="flex justify-between text-sm text-gray-700 mb-1"
+            >
+              <span>
+                {index + 2}. {item.name}
+              </span>
+              <span>{item.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
+      <div className="mt-6">
+        <table className="w-full bg-white shadow rounded">
+          <thead>
+            <tr className="text-left text-sm bg-gray-200">
+              <th className="p-2">Teammembers</th>
+              <th className="p-2">Assigned conversations</th>
+              <th className="p-2">Closed conversations</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="text-sm border-t">
+              <td className="p-2">Indi Marsela</td>
+              <td className="p-2">26</td>
+              <td className="p-2">27</td>
+            </tr>
+            <tr className="text-sm border-t">
+              <td className="p-2">Caitlin Prameswari</td>
+              <td className="p-2">34</td>
+              <td className="p-2">6</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
 
+export default Dashboard;

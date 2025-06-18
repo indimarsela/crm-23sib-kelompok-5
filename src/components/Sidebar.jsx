@@ -21,6 +21,13 @@ const menuItems = [
     { name: 'feedback', icon: <MessageCircle />, path: '/feedback' },
     { name: 'helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
+    { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
+    { name: 'Self Service', icon: <AiFillCustomerService />, path: '/selfservice' },
+    { name: 'Complaint Tracker', icon: <MessageCircle />, path: '/complaint-tracker' },
+    { name: 'OrderForm', icon: <GrUnorderedList />, path: '/orderform' },
+    { name: 'LeadManagement', icon: <GrUnorderedList />, path: '/leadmanagement' },
+    { name: 'Schedule', icon: <AiFillSchedule />, path: '/schedulingassistant' },
+    { name: 'Auto Email Responder', icon: <TfiEmail />, path: '/autoemailresponder' },
 ]
 
 const accountItems = [
