@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom"
 import MainLayout from "./components/MainLayout"
 import Dashboard from "./pages/Dashboard"
-import CustomerManagement from "./pages/CustomerManagement"
 // import SalesManagement from "./pages/Penjualan"
 import Penjualan from "./pages/Penjualan"
 import Tracking from "./pages/Tracking"
@@ -16,10 +15,14 @@ import SelfService from "./pages/SelfService"
 import AutoEmailResponder from "./pages/AutoEmailResponder"
 
 
+
 import Produk from "./pages/Product"
 import OrderManagement from "./pages/OrderManagement"
 import Laporan from "./pages/Laporan"
 import AccountManagement from "./pages/AccountManagement"
+import CustomerSegmentation from "./pages/CustomerSegmentation"
+import CampaignPage from "./pages/CampaignPage"
+import EmailCampaignManagement from "./pages/EmailCampaignManagement"
 function App() {
 
   return (
@@ -44,6 +47,9 @@ function App() {
         <Route path="/OrderManagement" element={<OrderManagement />} />
         <Route path="/Laporan" element={<Laporan />} />
         <Route path="/AccountManagement" element={<AccountManagement />} />
+        <Route path="/customersegmentation" element={<CustomerSegmentation/>} />
+        <Route path="/campaignmanagement" element={<CampaignPage/>} />
+        <Route path="/emailcampaignmanagement" element={<EmailCampaignManagement/>} />
 
       </Route>
     </Routes>
