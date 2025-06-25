@@ -25,11 +25,10 @@ const menuItems = [
     { name: 'Account Management', icon: <MdOutlineManageAccounts />, path: '/accountmanagement' },
     { name: 'Campaign Management', icon: <MdOutlineManageAccounts />, path: '/campaignmanagement' },
     { name: 'Customer Segementation', icon: <MdOutlineManageAccounts />, path: '/customersegmentation' },
-    { name: 'Email Campign Management', icon: <TfiEmail />, path: '/emailcampaignmanagement' },
+    { name: 'Email Campaign Management', icon: <TfiEmail />, path: '/emailcampaignmanagement' },
     { name: 'Penjualan', icon: <ShoppingCart />, path: '/penjualan' },
     { name: 'Feedback', icon: <MessageCircle />, path: '/feedback' },
     { name: 'Helpdesk', icon: <HeadsetIcon />, path: '/helpdesk' },
-    { name: 'Penjualan', icon: <ShoppingCart />, path: '/Penjualan' },
     { name: 'Pelanggan', icon: <User />, path: '/pelanggan' },
     { name: 'Laporan', icon: <BarChart2 />, path: '/laporan' },
     { name: 'Tracking', icon: <MdSpatialTracking />, path: '/tracking' },
@@ -52,12 +51,12 @@ const Sidebar = () => {
     const isActive = (path) => location.pathname === path;
 
     return (
-       <aside className="bg-white w-64 h-screen overflow-y-auto shadow-lg px-4 py-6 hidden md:block flex-shrink-0">
+        <aside className="bg-white w-64 h-screen overflow-y-auto shadow-lg px-4 py-6 hidden md:block flex-shrink-0">
             <div className="mb-10 flex items-center gap-3">
                 <img
                     src="/LOGO_AA.png"
                     alt="AA Catering Logo"
-                    className="h-20 w-auto"
+                    className="h-14 w-auto"
                 />
             </div>
 
@@ -66,9 +65,9 @@ const Sidebar = () => {
                     <Link
                         key={`${item.name}-${item.path}`}
                         to={item.path}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${
+                        className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f2d7d5] transition ${
                             isActive(item.path)
-                                ? 'bg-purple-200 text-purple-800 font-semibold'
+                                ? 'bg-[#f5b7b1] text-[#7b241c] font-semibold'
                                 : 'text-gray-700'
                         }`}
                     >
@@ -84,9 +83,9 @@ const Sidebar = () => {
                     <Link
                         key={`${item.name}-${item.path}`}
                         to={item.path}
-                        className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-purple-100 transition ${
+                        className={`flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#f2d7d5] transition ${
                             isActive(item.path)
-                                ? 'bg-purple-200 text-purple-800 font-semibold'
+                                ? 'bg-[#f5b7b1] text-[#7b241c] font-semibold'
                                 : 'text-gray-700'
                         }`}
                     >
