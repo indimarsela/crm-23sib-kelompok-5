@@ -78,10 +78,7 @@ const Header = () => {
         </div>
 
         {/* Sign In */}
-        <div className="flex items-center gap-2 text-sm cursor-pointer hover:text-[#ffd6d6] transition-colors duration-200">
-          <User className="w-4 h-4" />
-          Sign In
-        </div>
+        
       </div>
     </header>
   )
