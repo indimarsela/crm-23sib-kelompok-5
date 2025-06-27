@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ArrowDown, ArrowUp, Pencil, Trash, Mail } from 'lucide-react';
 
 const dummyData = [
@@ -69,61 +69,60 @@ const Pelanggan = () => {
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">Dashboard Pelanggan</h1>
+      <h1 className="text-3xl font-bold mb-6 text-[#a52a2a]">Dashboard Pelanggan</h1>
 
       <div className="mb-6 p-4 bg-white rounded-xl shadow-md">
-  <h2 className="text-lg font-semibold mb-4">Tambah Pelanggan Baru</h2>
-  <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-    <input
-      type="text"
-      placeholder="Nama"
-      className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      value={newCustomer.name}
-      onChange={(e) => setNewCustomer({ ...newCustomer, name: e.target.value })}
-    />
-    <input
-      type="email"
-      placeholder="Email"
-      className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      value={newCustomer.email}
-      onChange={(e) => setNewCustomer({ ...newCustomer, email: e.target.value })}
-    />
-    <input
-      type="number"
-      placeholder="Total Pembelian"
-      className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      value={newCustomer.totalOrders}
-      onChange={(e) => setNewCustomer({ ...newCustomer, totalOrders: e.target.value })}
-    />
-    <input
-      type="date"
-      className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-      value={newCustomer.lastOrder}
-      onChange={(e) => setNewCustomer({ ...newCustomer, lastOrder: e.target.value })}
-    />
-    <button
-      onClick={handleAddCustomer}
-      className="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition"
-    >
-      Tambah
-    </button>
-  </div>
-</div>
-
+        <h2 className="text-lg font-semibold mb-4 text-[#a52a2a]">Tambah Pelanggan Baru</h2>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <input
+            type="text"
+            placeholder="Nama"
+            className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#a52a2a]"
+            value={newCustomer.name}
+            onChange={(e) => setNewCustomer({ ...newCustomer, name: e.target.value })}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#a52a2a]"
+            value={newCustomer.email}
+            onChange={(e) => setNewCustomer({ ...newCustomer, email: e.target.value })}
+          />
+          <input
+            type="number"
+            placeholder="Total Pembelian"
+            className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#a52a2a]"
+            value={newCustomer.totalOrders}
+            onChange={(e) => setNewCustomer({ ...newCustomer, totalOrders: e.target.value })}
+          />
+          <input
+            type="date"
+            className="border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-[#a52a2a]"
+            value={newCustomer.lastOrder}
+            onChange={(e) => setNewCustomer({ ...newCustomer, lastOrder: e.target.value })}
+          />
+          <button
+            onClick={handleAddCustomer}
+            className="bg-[#a52a2a] text-white rounded-lg px-4 py-2 hover:bg-[#922b2b] transition"
+          >
+            Tambah
+          </button>
+        </div>
+      </div>
 
       <div className="flex justify-end gap-2 mb-4">
         <button onClick={() => handleSort('asc')} className="icon-button">
-          <ArrowDown className="w-4 h-4" />
+          <ArrowDown className="w-4 h-4 text-[#a52a2a]" />
         </button>
         <button onClick={() => handleSort('desc')} className="icon-button">
-          <ArrowUp className="w-4 h-4" />
+          <ArrowUp className="w-4 h-4 text-[#a52a2a]" />
         </button>
       </div>
 
       <div className="overflow-x-auto rounded-lg shadow">
         <table className="min-w-full bg-white text-sm text-gray-700">
           <thead>
-            <tr className="bg-blue-50 text-left text-xs uppercase tracking-wider text-blue-600">
+            <tr className="bg-[#fdf3f3] text-left text-xs uppercase tracking-wider text-[#a52a2a]">
               <th className="p-3">Nama</th>
               <th className="p-3">Email</th>
               <th className="p-3">Total Pembelian</th>
@@ -186,20 +185,20 @@ const Pelanggan = () => {
                   {editingId === cust.id ? (
                     <button
                       onClick={handleSaveEdit}
-                      className="btn-success"
+                      className="bg-[#a52a2a] text-white px-3 py-1 rounded hover:bg-[#922b2b]"
                     >
                       Simpan
                     </button>
                   ) : (
-                    <button onClick={() => handleEdit(cust)} className="icon-action text-blue-600">
+                    <button onClick={() => handleEdit(cust)} className="text-[#a52a2a] hover:underline">
                       <Pencil className="inline w-4 h-4" />
                     </button>
                   )}
-                  <button onClick={() => handleDelete(cust.id)} className="icon-action text-red-600">
+                  <button onClick={() => handleDelete(cust.id)} className="text-red-600 hover:underline">
                     <Trash className="inline w-4 h-4" />
                   </button>
                   {isMoreThanTwoMonths(cust.lastOrder) && (
-                    <button className="icon-action text-yellow-600">
+                    <button className="text-yellow-600 hover:underline">
                       <Mail className="inline w-4 h-4 mr-1" /> Follow-up
                     </button>
                   )}

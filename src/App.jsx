@@ -1,4 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom"
+import MainLayout from "./components/MainLayout"
+import Dashboard from "./pages/Dashboard"
+// import SalesManagement from "./pages/Penjualan"
+import Penjualan from "./pages/Penjualan"
+import Tracking from "./pages/Tracking"
+import OrderForm from "./pages/OrderForm"
+import Feedback from "./pages/Feedback"
+import Helpdesk from "./pages/Helpdesk"
+import Pelanggan from "./pages/Pelanggan"
+import LeadManagement from "./pages/LeadManagement"
+import SchedulingAssistant from "./pages/SchedulingAssistant"
+import ComplaintTracker from "./pages/ComplaintTracker"
+import SelfService from "./pages/SelfService"
+import AutoEmailResponder from "./pages/AutoEmailResponder"
 
 // Layout
 import MainLayout from "./components/MainLayout";
@@ -32,6 +46,14 @@ import Artikel from "./pages/Artikel";
 import Kontak from "./pages/Kontak";
 import Login from "./pages/Login";
 
+
+import Produk from "./pages/Product"
+import OrderManagement from "./pages/OrderManagement"
+import Laporan from "./pages/Laporan"
+import AccountManagement from "./pages/AccountManagement"
+import CustomerSegmentation from "./pages/CustomerSegmentation"
+import CampaignPage from "./pages/CampaignPage"
+import EmailCampaignManagement from "./pages/EmailCampaignManagement"
 function App() {
   return (
     <Routes>
@@ -53,6 +75,15 @@ function App() {
         <Route path="/ordermanagement" element={<OrderManagement />} />
         <Route path="/laporan" element={<Laporan />} />
         <Route path="/accountmanagement" element={<AccountManagement />} />
+        <Route path="/Produk" element={<Produk />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/OrderManagement" element={<OrderManagement />} />
+        <Route path="/Laporan" element={<Laporan />} />
+        <Route path="/AccountManagement" element={<AccountManagement />} />
+        <Route path="/customersegmentation" element={<CustomerSegmentation/>} />
+        <Route path="/campaignmanagement" element={<CampaignPage/>} />
+        <Route path="/emailcampaignmanagement" element={<EmailCampaignManagement/>} />
+
       </Route>
 
       {/* ======= ROUTING CUSTOMER ======= */}
