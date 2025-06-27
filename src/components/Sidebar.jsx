@@ -17,6 +17,21 @@ import {
 import { Link, useLocation } from 'react-router-dom';
 import { TfiEmail } from "react-icons/tfi";
 
+import {
+  LayoutDashboard,
+  Users,
+  ShoppingCart,
+  Box,
+  BarChart2,
+  Settings,
+  User,
+  MessageCircle,
+  HeadsetIcon,
+  LogOut,
+} from 'lucide-react';
+
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 const menuItems = [
     { name: 'Dashboard', icon: <LayoutDashboard />, path: '/' },
     { name: 'Produk', icon: <Box />, path: '/produk' },
