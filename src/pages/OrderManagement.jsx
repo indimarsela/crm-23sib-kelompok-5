@@ -24,20 +24,10 @@ const initialOrders = [
     phone: '081234567890',
     email: 'rizky.f@email.com',
     notes: 'Mohon siapkan area khusus untuk hidangan vegetarian.',
-    items: [
-      { name: 'Nasi Putih', qty: 100, unitPrice: 5000, subtotal: 500000 },
-      { name: 'Ayam Bakar Madu', qty: 100, unitPrice: 35000, subtotal: 3500000 },
-      { name: 'Sapi Lada Hitam', qty: 100, unitPrice: 40000, subtotal: 4000000 },
-      { name: 'Capcay Kuah Seafood', qty: 100, unitPrice: 25000, subtotal: 2500000 },
-      { name: 'Sup Krim Jagung', qty: 100, unitPrice: 15000, subtotal: 1500000 },
-      { name: 'Aneka Puding', qty: 100, unitPrice: 10000, subtotal: 1000000 },
-      { name: 'Air Mineral Botol', qty: 100, unitPrice: 2000, subtotal: 200000 },
-      { name: 'Buah Potong Segar', qty: 100, unitPrice: 18000, subtotal: 1800000 },
-    ],
-    log: [
-      { action: 'Pesanan Dibuat', by: 'Pelanggan', timestamp: '2025-06-28 10:30' },
-      { action: 'Status Diubah ke Dalam Proses', by: 'Admin A', timestamp: '2025-06-28 11:00' },
-    ]
+    shipping: "Reguler",
+    tracking: "204000000111122233",
+    orderNumber: "SO001",
+    item: 8,
   },
   {
     id: 'AA002',
@@ -55,44 +45,21 @@ const initialOrders = [
     phone: '081321098765',
     email: 'siti.r@email.com',
     notes: 'Acara malam hari, mohon persiapan diatur dengan baik.',
-    items: [
-      { name: 'Buffet Utama', qty: 1, unitPrice: 20000000, subtotal: 20000000 },
-      { name: 'Pilihan Lauk Utama (Ayam Bakar, Daging Rendang)', qty: 300, unitPrice: 50000, subtotal: 15000000 },
-    ],
-    log: [
-      { action: 'Pesanan Dibuat', by: 'Pelanggan', timestamp: '2025-06-25 14:15' },
-    ]
+    shipping: "Express",
+    tracking: "204000000222233344",
+    orderNumber: "SO002",
+    item: 2,
   },
   {
-    id: 2,
-    orderId: "58765",
+    id: 'AA003',
     orderNumber: "SO72014",
-    status: "Inprogress",
+    status: "Dalam Proses",
     item: 2,
-    customer: "Kate Watson",
+    customerName: "Kate Watson",
     shipping: "Express",
     tracking: "204000000578470914",
   },
-  // Tambahkan data lainnya sesuai kebutuhan
 ];
-
-const ORDER_STATUSES = [
-  'Menunggu Konfirmasi',
-  'Dalam Proses',
-  'Siap Dikirim',
-  'Terkirim',
-  'Dibatalkan',
-  'Selesai'
-];
-
-// Helper untuk format harga IDR
-const formatRupiah = (amount) => {
-  return new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
-    minimumFractionDigits: 0,
-  }).format(amount);
-};
 
 // Fungsi untuk mendapatkan warna badge berdasarkan status
 const getStatusBadgeClass = (status) => {
@@ -106,14 +73,6 @@ const getStatusBadgeClass = (status) => {
     default: return 'bg-gray-200 text-gray-800';
   }
 };
-
-// Style object for the modal overlay
-const modalOverlayStyle = {
-  backgroundColor: 'rgba(17, 24, 39, 0.4)', // This is a semi-transparent dark gray
-  backdropFilter: 'blur(4px)',
-  WebkitBackdropFilter: 'blur(4px)', // For Safari compatibility
-};
-
 
 const OrderManagement = () => {
   const [orders, setOrders] = useState(initialOrders);
@@ -162,17 +121,17 @@ const OrderManagement = () => {
           <tbody>
             {orders.map((order) => (
               <tr key={order.id} className="border-t">
-                <td className="px-3 py-2">{order.orderId}</td>
-                <td className="px-3 py-2">{order.orderNumber}</td>
+                <td className="px-3 py-2">{order.id}</td>
+                <td className="px-3 py-2">{order.orderNumber || "-"}</td>
                 <td className="px-3 py-2">
-                  <span className={`px-2 py-1 rounded text-xs font-semibold ${statusColor[order.status]}`}>
+                  <span className={`px-2 py-1 rounded text-xs font-semibold ${getStatusBadgeClass(order.status)}`}>
                     {order.status}
                   </span>
                 </td>
-                <td className="px-3 py-2">{order.item}</td>
-                <td className="px-3 py-2">{order.customer}</td>
-                <td className="px-3 py-2">{order.shipping}</td>
-                <td className="px-3 py-2">{order.tracking}</td>
+                <td className="px-3 py-2">{order.item || "-"}</td>
+                <td className="px-3 py-2">{order.customerName || "-"}</td>
+                <td className="px-3 py-2">{order.shipping || "-"}</td>
+                <td className="px-3 py-2">{order.tracking || "-"}</td>
                 <td className="px-3 py-2 flex gap-2">
                   <button className="text-blue-600 hover:underline">
                     <FaEdit />
@@ -185,7 +144,7 @@ const OrderManagement = () => {
                   </button>
                 </td>
               </tr>
-            )}
+            ))}
           </tbody>
         </table>
       </div>
