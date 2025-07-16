@@ -1,3 +1,4 @@
+import { MdSpaceDashboard } from "react-icons/md"; 
 import { RiListOrdered } from "react-icons/ri"; 
 import { AiFillCustomerService, AiFillSchedule } from "react-icons/ai"; 
 import { MdOutlineManageAccounts, MdSpatialTracking } from "react-icons/md";
@@ -36,6 +37,7 @@ const menuItems = [
   { name: "Order Form", icon: <GrUnorderedList />, path: "/orderform" },
   { name: "Schedule", icon: <AiFillSchedule />, path: "/schedulingassistant" },
   { name: "Auto Email Responder", icon: <TfiEmail />, path: "/autoemailresponder" },
+  { name: "Visual Dashboard", icon: <MdSpaceDashboard />, path: "/visualdashboard" },
 ];
 
 const Sidebar = () => {

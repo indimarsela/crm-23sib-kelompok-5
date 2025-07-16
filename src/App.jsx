@@ -25,6 +25,7 @@ import AccountManagement from "./pages/AccountManagement";
 import CustomerSegmentation from "./pages/CustomerSegmentation";
 import CampaignPage from "./pages/CampaignPage";
 import EmailCampaignManagement from "./pages/EmailCampaignManagement";
+import VisualDashboard from "./pages/VisualDashboard";
 
 // Halaman Customer
 import HomeCustomer from "./pages/HomeCustomer";
@@ -61,6 +62,7 @@ function App() {
         <Route path="/customersegmentation" element={<CustomerSegmentation />} />
         <Route path="/campaignmanagement" element={<CampaignPage />} />
         <Route path="/emailcampaignmanagement" element={<EmailCampaignManagement />} />
+        <Route path="/visualdashboard" element={<VisualDashboard />} />
       </Route>
 
       {/* ======= ROUTING CUSTOMER ======= */}
