@@ -87,6 +87,11 @@ const VisualDashboard = () => {
       .catch(() => setVisualData(dummyData));
   }, []);
 
+  // Define the consistent colors for the dashboard graphs
+  const primaryColor = '#8A2027'; // Dark Red/Maroon from the header
+  const accentColor1 = '#E63946'; // A brighter red, similar to the main line chart
+  const accentColor3 = '#FFC107'; // A shade of yellow/orange for other bars
+
   return (
     <div className="p-6 space-y-10">
       <h1 className="text-2xl font-bold">🔍 Prediksi & 📊 Visualisasi Repeat Order AA Catering</h1>
@@ -150,8 +155,8 @@ const VisualDashboard = () => {
           <h2 className="text-xl font-semibold">📊 Visualisasi Data Pelanggan</h2>
 
           {/* Jenis Layanan */}
-          <div>
-            <h3 className="font-medium mb-2">Jenis Layanan Terpopuler</h3>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h3 className="font-medium mb-2 text-lg">Jenis Layanan Terpopuler</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={visualData.jenis_layanan}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -159,7 +164,7 @@ const VisualDashboard = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="jumlah" fill="#8884d8" />
+                <Bar dataKey="jumlah" fill={primaryColor} /> {/* Merah Gelap/Maroon */}
               </BarChart>
             </ResponsiveContainer>
             <p className="mt-2 bg-blue-50 p-3 text-sm rounded border border-blue-200">
@@ -169,8 +174,8 @@ const VisualDashboard = () => {
           </div>
 
           {/* Wilayah */}
-          <div>
-            <h3 className="font-medium mb-2">Wilayah Pemesanan Terbanyak</h3>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h3 className="font-medium mb-2 text-lg">Wilayah Pemesanan Terbanyak</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={visualData.wilayah}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -178,18 +183,18 @@ const VisualDashboard = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="jumlah" fill="#82ca9d" />
+                <Bar dataKey="jumlah" fill={accentColor1} /> {/* Merah Cerah */}
               </BarChart>
             </ResponsiveContainer>
             <p className="mt-2 bg-blue-50 p-3 text-sm rounded border border-blue-200">
-              📘 <strong>Insight:</strong> Pemesanan terbanyak berasal dari <strong>Pekanbaru</strong>. 
+              📘 <strong>Insight:</strong> Pemesanan terbanyak berasal dari <strong>Pekanbaru</strong>.
               Wilayah Sukajadi & Tenayan perlu ditingkatkan melalui promosi lokal.
             </p>
           </div>
 
           {/* Rating */}
-          <div>
-            <h3 className="font-medium mb-2">Rating Layanan Terbanyak</h3>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h3 className="font-medium mb-2 text-lg">Rating Layanan Terbanyak</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={visualData.rating}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -197,11 +202,11 @@ const VisualDashboard = () => {
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="jumlah" fill="#ffc658" />
+                <Bar dataKey="jumlah" fill={accentColor3} /> {/* Kuning/Oranye */}
               </BarChart>
             </ResponsiveContainer>
             <p className="mt-2 bg-blue-50 p-3 text-sm rounded border border-blue-200">
-              📘 <strong>Insight:</strong> Sebagian besar pelanggan memberikan rating <strong>5</strong>. 
+              📘 <strong>Insight:</strong> Sebagian besar pelanggan memberikan rating <strong>5</strong>.
               Testimoni positif dapat dimanfaatkan untuk promosi digital.
             </p>
           </div>
